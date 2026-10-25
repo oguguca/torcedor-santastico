@@ -5,7 +5,7 @@ import { MobileNav } from "./mobile-nav";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-paper/95 backdrop-blur-md">
+    <header className="header-fill sticky top-0 z-40 border-b border-paper/10 bg-ink/95 text-paper backdrop-blur-md">
       <div className="shell flex h-16 items-center justify-between gap-6">
         <a href="#inicio" aria-label={`${siteConfig.name}, voltar ao início`} className="-my-2 py-2">
           <Logo />
@@ -17,7 +17,7 @@ export function SiteHeader() {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="relative py-2 text-[0.9375rem] font-medium text-muted transition-colors hover:text-ink after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-ink after:transition-transform after:duration-300 hover:after:scale-x-100"
+                  className="relative py-2 text-[0.9375rem] font-medium text-muted-on-ink transition-colors hover:text-paper after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-paper after:transition-transform after:duration-300 hover:after:scale-x-100"
                 >
                   {item.label}
                 </a>

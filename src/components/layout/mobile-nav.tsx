@@ -46,12 +46,12 @@ export function MobileNav({ items, footer }: MobileNavProps) {
       <div
         id={panelId}
         hidden={!open}
-        className="absolute inset-x-0 top-full max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-ink bg-paper"
+        className="absolute inset-x-0 top-full max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-paper/10 bg-ink text-paper"
       >
         <nav aria-label="Seções da página" className="shell">
           <ul>
             {items.map((item) => (
-              <li key={item.href} className="border-b border-line">
+              <li key={item.href} className="border-b border-paper/10">
                 <a
                   href={item.href}
                   onClick={() => setOpen(false)}

@@ -16,9 +16,10 @@ export const siteConfig = {
     "Plataforma independente feita para a torcida do Santos: avalie o time, dê seus palpites e acompanhe a opinião dos santistas depois de cada jogo. Em construção.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   nav: [
-    { label: "Demonstração", href: "#demonstracao" },
-    { label: "Funcionalidades", href: "#funcionalidades" },
     { label: "Como funciona", href: "#como-funciona" },
+    { label: "Sala do jogo", href: "#sala-do-jogo" },
+    { label: "Temporada", href: "#temporada" },
+    { label: "Regras", href: "#regras" },
     { label: "Manifesto", href: "#manifesto" },
   ] satisfies NavItem[],
   auth: {

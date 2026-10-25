@@ -15,11 +15,11 @@ export function AuthActions({ className }: { className?: string }) {
     return (
       <p
         className={cx(
-          "eyebrow inline-flex items-center gap-2 border border-line px-3 py-2 text-muted",
+          "eyebrow inline-flex items-center gap-2 border border-paper/20 px-3 py-2 text-muted-on-ink",
           className,
         )}
       >
-        <span aria-hidden="true" className="size-1.5 bg-ink" />
+        <span aria-hidden="true" className="size-1.5 bg-paper" />
         Cadastro em breve
       </p>
     );
@@ -36,7 +36,7 @@ export function AuthActions({ className }: { className?: string }) {
         </Link>
       )}
       {signupHref && (
-        <ButtonLink href={signupHref} className="min-h-11 px-5">
+        <ButtonLink href={signupHref} tone="dark" className="min-h-11 px-5">
           Criar conta
         </ButtonLink>
       )}

@@ -1,11 +1,14 @@
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
-import { Features } from "@/components/sections/features";
 import { FinalCta } from "@/components/sections/final-cta";
 import { Hero } from "@/components/sections/hero";
-import { HowItWorks } from "@/components/sections/how-it-works";
 import { Manifesto } from "@/components/sections/manifesto";
-import { RatingDemo } from "@/components/sections/rating-demo";
+import { MatchCycle } from "@/components/sections/match-cycle";
+import { MatchResult } from "@/components/sections/match-result";
+import { MatchRoom } from "@/components/sections/match-room";
+import { PillarsStrip } from "@/components/sections/pillars-strip";
+import { RoomRules } from "@/components/sections/room-rules";
+import { SeasonSpotlight } from "@/components/sections/season-spotlight";
 
 export default function Home() {
   return (
@@ -13,9 +16,12 @@ export default function Home() {
       <SiteHeader />
       <main id="conteudo">
         <Hero />
-        <RatingDemo />
-        <Features />
-        <HowItWorks />
+        <PillarsStrip />
+        <MatchCycle />
+        <MatchRoom />
+        <MatchResult />
+        <SeasonSpotlight />
+        <RoomRules />
         <Manifesto />
         <FinalCta />
       </main>

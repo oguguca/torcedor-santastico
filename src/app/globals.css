@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+/* Tokens da identidade alvinegra */
+@theme {
+  --color-ink: #111111;
+  --color-ink-raised: #1b1b1b;
+  --color-paper: #ffffff;
+  --color-surface: #f4f4f4;
+  --color-line: #e5e5e5;
+  --color-muted: #6b6b6b;
+  --color-muted-on-ink: #a8a8a8;
+
+  /* Escala tipográfica fluida: o mínimo cabe em telas de 360px */
+  --text-display: clamp(2.5rem, 0.5rem + 9.4vw, 8rem);
+  --text-display--line-height: 0.92;
+  --text-section: clamp(2.25rem, 1.25rem + 4.2vw, 4.75rem);
+  --text-section--line-height: 0.94;
+  --text-title: clamp(1.5rem, 1.2rem + 1.1vw, 2.125rem);
+  --text-title--line-height: 1;
+  --text-lead: clamp(1.125rem, 1rem + 0.45vw, 1.375rem);
+  --text-lead--line-height: 1.5;
+  --text-label: 0.8125rem;
+  --text-label--line-height: 1.3;
+
+  --animate-rise: rise 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-display: var(--font-archivo), "Arial Narrow", sans-serif;
+}
+
+/* Largura e respiro padrão das seções */
+@utility shell {
+  width: 100%;
+  max-width: 84rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+
+  @media (width >= 40rem) {
+    padding-inline: 1.5rem;
+  }
+
+  @media (width >= 64rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Títulos editoriais: Archivo condensada, caixa alta */
+@utility headline {
+  font-family: var(--font-display);
+  font-stretch: 75%;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+
+/* Rótulos auxiliares em monoespaçada */
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  line-height: var(--text-label--line-height);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Texto vazado com contorno; sem suporte, cai para texto sólido */
+@utility text-outline {
+  @supports (-webkit-text-stroke: 1px currentColor) {
+    color: transparent;
+    -webkit-text-stroke: clamp(1.5px, 0.18vw, 3px) var(--color-ink);
+  }
+}
+
+/* Listras verticais alvinegras usadas como textura */
+@utility stripes {
+  background-image: repeating-linear-gradient(
+    90deg,
+    currentColor 0 12px,
+    transparent 12px 24px
+  );
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  section[id] {
+    scroll-margin-top: 4rem;
+  }
+
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+}
+
+/* Barras da demonstração crescem ao entrar na tela, onde houver suporte */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .bar-grow {
+      transform-origin: left;
+      animation: bar-grow linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 35%;
+    }
+  }
+}
+
+@keyframes bar-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

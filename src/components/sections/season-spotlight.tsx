@@ -136,10 +136,12 @@ export function SeasonSpotlight() {
               return (
                 <li
                   key={group.label}
-                  aria-disabled="true"
                   className="flex min-h-12 cursor-not-allowed select-none items-center justify-between border-b border-paper/10 font-medium text-paper/40"
                 >
-                  {group.label}
+                  <span>
+                    {group.label}
+                    <span className="sr-only"> (bloqueado)</span>
+                  </span>
                   <ChevronDown aria-hidden="true" className="size-4" />
                 </li>
               );
@@ -162,10 +164,12 @@ export function SeasonSpotlight() {
                   {teammates.slice(0, PREVIEW_TEAMMATES).map((name) => (
                     <li
                       key={name}
-                      aria-disabled="true"
                       className="flex cursor-not-allowed select-none items-center justify-between border-t border-paper/5 px-3 py-2.5 text-paper/35"
                     >
-                      {name}
+                      <span>
+                        {name}
+                        <span className="sr-only"> (bloqueado)</span>
+                      </span>
                       <Lock aria-hidden="true" className="size-3.5" />
                     </li>
                   ))}

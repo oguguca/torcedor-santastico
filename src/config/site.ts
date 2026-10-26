@@ -23,7 +23,7 @@ export const siteConfig = {
     { label: "Manifesto", href: "#manifesto" },
   ] satisfies NavItem[],
   auth: {
-    loginHref: null,
-    signupHref: null,
+    loginHref: "/entrar",
+    signupHref: "/cadastro",
   } satisfies AuthLinks as AuthLinks,
 };
